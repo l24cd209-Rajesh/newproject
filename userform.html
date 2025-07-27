@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Register + Payment</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f4f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh; margin: 0;
+    }
+    form {
+      background: #fff;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      width: 100%; max-width: 500px;
+    }
+    h1 {
+      text-align: center;
+      color: #0d47a1;
+      margin-bottom: 30px;
+    }
+    label {
+      font-weight: bold;
+      display: block;
+      margin: 10px 0 5px;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      margin-bottom: 15px;
+      font-size: 15px;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #0d47a1;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #08306b;
+    }
+  </style>
+</head>
+<body>
+
+  <form action="register.php" method="post">
+    <h1>Event Registration</h1>
+
+    <label for="fullname">Full Name:</label>
+    <input type="text" name="fullname" placeholder="Name" required>
+
+    <label for="email">Email Address:</label>
+    <input type="email" name="email" placeholder="email@gmail.com" required>
+
+    <label for="phone">Phone Number:</label>
+    <input type="tel" name="phone" placeholder="Phone number" required>
+
+    <label for="username">Username:</label>
+    <input type="text" name="username" placeholder="Choose a username" required>
+
+    <label for="password">Password:</label>
+    <input type="password" name="password" placeholder="Create a password" required>
+
+    <label for="referral">Referral Code (Optional):</label>
+    <input type="text" name="referral" placeholder="Referral code if any">
+
+    <button type="submit">Proceed to Payment ₹3000/-</button>
+  </form>
+
+</body>
+</html>
