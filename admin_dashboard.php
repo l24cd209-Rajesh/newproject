@@ -6,11 +6,13 @@ session_start();
 $username = $_POST['username'] ?? '';
 $password = md5($_POST['password'] ?? '');
 
-$query = "SELECT * FROM admin WHERE username='$username' AND password='$password'";
-$result = $conn->query($query);
+$stmt = $conn->prepare("SELECT * FROM admin WHERE username=? AND password=?");
+$stmt->execute([$username, $password]);
+$admin_result = $stmt->fetchAll();
 
-if ($result->num_rows > 0) {
-    $participants = $conn->query("SELECT * FROM participants");
+if (count($admin_result) > 0) {
+    $participants_stmt = $conn->query("SELECT * FROM participants");
+    $participants = $participants_stmt->fetchAll(PDO::FETCH_ASSOC);
     ?>
     <!DOCTYPE html>
     <html>
@@ -75,7 +77,7 @@ if ($result->num_rows > 0) {
                 </tr>
             </thead>
             <tbody>
-            <?php while ($row = $participants->fetch_assoc()): ?>
+            <?php foreach ($participants as $row): ?>
                 <tr>
                     <td><?= $row['id'] ?></td>
                     <td><?= htmlspecialchars($row['fullname']) ?></td>
@@ -85,7 +87,7 @@ if ($result->num_rows > 0) {
                     <td><?= htmlspecialchars($row['referral']) ?></td>
                     <td><?= $row['registered_at'] ?></td>
                 </tr>
-            <?php endwhile; ?>
+            <?php endforeach; ?>
             </tbody>
         </table>
 
@@ -106,5 +108,4 @@ if ($result->num_rows > 0) {
 } else {
     echo "<script>alert('Invalid credentials'); window.location.href='admin_login.html';</script>";
 }
-$conn->close();
 ?>
