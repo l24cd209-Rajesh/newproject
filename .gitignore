@@ -1,0 +1,63 @@
+# Environment Configuration
+.env
+.env.local
+.env.production
+
+# Dependencies
+/vendor/
+composer.lock
+
+# Logs
+*.log
+logs/
+error.log
+access.log
+
+# Database backups
+*.sql.backup
+backup_*.sql
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Operating System files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+temp/
+tmp/
+
+# Cache files
+cache/
+*.cache
+
+# Upload directories (if any)
+uploads/
+files/
+
+# Configuration backups
+config.php.backup
+db_config.php.backup
+
+# Email templates cache
+email_templates_cache/
+
+# Session files
+sessions/
+
+# Sensitive data
+credentials.txt
+passwords.txt
+keys.txt
