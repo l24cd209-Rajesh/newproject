@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt = $conn->prepare("INSERT INTO participants (fullname, email, phone, username, password, referral) VALUES (?, ?, ?, ?, ?, ?)");
     
     if ($stmt->execute([$fullname, $email, $phone, $username, $password, $referral])) {
-        echo "<script>alert('Registered Successfully!'); window.location.href='project.html';</script>";
+        echo "<script>alert('Registered Successfully!'); window.location.href='thankyou.html';</script>";
     } else {
         echo "Error: " . $stmt->errorInfo()[2];
     }

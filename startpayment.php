@@ -39,7 +39,7 @@ $_SESSION['order_id'] = $order['id'];
       "order_id": "<?= $order['id'] ?>",
       "handler": function (response) {
         // Send to server
-        fetch("paymentSuccess.php", {
+        fetch("paymentsuccess.php", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
