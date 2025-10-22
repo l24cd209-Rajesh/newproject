@@ -10,15 +10,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $referral = $_POST['referral'];
 
     $stmt = $conn->prepare("INSERT INTO participants (fullname, email, phone, username, password, referral) VALUES (?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("ssssss", $fullname, $email, $phone, $username, $password, $referral);
-
-    if ($stmt->execute()) {
-        echo "<script>alert('Registered Successfully!'); window.location.href='project.html';</script>";
+    
+    if ($stmt->execute([$fullname, $email, $phone, $username, $password, $referral])) {
+        echo "<script>alert('Registered Successfully!'); window.location.href='thankyou.html';</script>";
     } else {
-        echo "Error: " . $conn->error;
+        echo "Error: " . $stmt->errorInfo()[2];
     }
-
-    $stmt->close();
-    $conn->close();
 }
 ?>
